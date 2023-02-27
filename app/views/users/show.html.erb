@@ -1,0 +1,56 @@
+<h1><%= @the_username.inspect %></h1>
+
+<dl>
+  <dt>Private</dt>
+  <dd>false</dd>
+
+  <dt>Followers</dt>
+  <dd>follower's count 
+    <h4>Pending follow requests</h4>
+    <ul>
+    </ul>
+  </dd>
+
+  <dt>Following</dt>
+  <dd>0</dd>
+
+  <dt>Edit user</dt>
+  <dd>
+    <form action="/modify_user/121" method="post">
+      <label for="browser_username">Username</label>
+      <input id="browser_username" type="text" name="query_username" placeholder="Enter a username..." value="shu">
+
+      <label for="browser_private">Private?</label>
+      <input id="browser_private" type="checkbox" name="query_private">
+
+      <button>Update user</button>
+    </form>
+  </dd>
+</dl>
+
+<ul>
+  <li><a href="/">Profile</a></li>
+  <li><a href="/">Liked photos</a></li>
+  <li><a href="/">Feed</a></li>
+  <li><a href="/">Discover</a></li>
+</ul>
+
+<h2>Own photos</h2>
+  <table border=1>
+  <tr>
+    <th>Image</th>
+    <th>Owner</th>
+    <th>Caption</th>
+    <th>Posted</th>
+    <th>Likes</th>
+    <th></th>
+  </tr>
+
+  <tr>
+    <td>Image</td>
+    <td>Owner</td>
+    <td>Caption</td>
+    <td>Posted</td>
+    <td>Likes</td>
+  </tr>
+</table>

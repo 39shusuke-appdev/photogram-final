@@ -8,11 +8,16 @@ class PhotosController < ApplicationController
   end
 
   def show
+
     the_id = params.fetch("path_id")
 
     matching_photos = Photo.where({ :id => the_id })
 
     @the_photo = matching_photos.at(0)
+
+    
+    matching_comments = Comment.all
+    @list_of_comments = matching_comments.where({ :photo_id => the_id})
 
     render({ :template => "photos/show.html.erb" })
   end

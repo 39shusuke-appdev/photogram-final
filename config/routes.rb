@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   get("/users", {:controller => "users", :action => "index"})
 
+  get("/users/:user_name", {:controller => "users", :action => "show"})
+
+
   get("/", {:controller => "users", :action => "index"})
 
   # Routes for the Like resource:
