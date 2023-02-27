@@ -15,15 +15,6 @@
 
         <label for="caption_box">Caption</label>
         <textarea id="caption_box" name="query_caption" rows="3"></textarea>
-
-        # <label for="comments_count_box">Comments count</label>
-        # <input type="hidden" id="comments_count_box" name="query_comments_count">
-      
-        # <label for="likes_count_box">Likes count</label>
-        # <input type="hidden" id="likes_count_box" name="query_likes_count">
-
-        # <label for="owner_id_box">Owner</label>
-        # <input type="hidden" id="owner_id_box" name="query_owner_id">
       
       <button>Add photo</button>
     </form>
@@ -36,7 +27,7 @@
     <table border="1">
       <tr>
         <th>
-          ID
+          Image
         </th>
 
         <th>
@@ -44,27 +35,15 @@
         </th>
 
         <th>
-          Comments count
-        </th>
-
-        <th>
-          Image
-        </th>
-
-        <th>
-          Likes count
-        </th>
-
-        <th>
           Owner
         </th>
-
+ 
         <th>
-          Created at
+          Posted
         </th>
 
         <th>
-          Updated at
+          Likes
         </th>
 
         <th>
@@ -74,23 +53,11 @@
       <% @list_of_photos.each do |a_photo| %>
       <tr>
         <td>
-          <%= a_photo.id %>
-        </td>
-
-        <td>
-          <%= a_photo.caption %>
-        </td>
-
-        <td>
-          <%= a_photo.comments_count %>
-        </td>
-
-        <td>
           <%= a_photo.image %>
         </td>
 
         <td>
-          <%= a_photo.likes_count %>
+          <%= a_photo.caption %>
         </td>
 
         <td>
@@ -100,10 +67,11 @@
         <td>
           <%= time_ago_in_words(a_photo.created_at) %> ago
         </td>
+    
         <td>
-          <%= time_ago_in_words(a_photo.updated_at) %> ago
+          <%= a_photo.likes_count %>
         </td>
-
+      
         <td>
           <a href="/photos/<%= a_photo.id %>">
             Show details

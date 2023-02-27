@@ -4,6 +4,8 @@
       Photo #<%= @the_photo.id %> details
     </h1>
 
+
+
     <div>
       <div>
         <a href="/photos">
@@ -19,19 +21,6 @@
     </div>
 
     <dl>
-      <dt>
-        Caption
-      </dt>
-      <dd>
-        <%= @the_photo.caption %>
-      </dd>
-
-      <dt>
-        Comments count
-      </dt>
-      <dd>
-        <%= @the_photo.comments_count %>
-      </dd>
 
       <dt>
         Image
@@ -41,10 +30,10 @@
       </dd>
 
       <dt>
-        Likes count
+        Caption
       </dt>
       <dd>
-        <%= @the_photo.likes_count %>
+        <%= @the_photo.caption %>
       </dd>
 
       <dt>
@@ -55,17 +44,40 @@
       </dd>
 
       <dt>
-        Created at
+        Posted
       </dt>
       <dd>
         <%= time_ago_in_words(@the_photo.created_at) %> ago
       </dd>
 
       <dt>
-        Updated at
+        Likes count
       </dt>
       <dd>
-        <%= time_ago_in_words(@the_photo.updated_at) %> ago
+        <%= @the_photo.likes_count %>
+      </dd>
+
+      <dt>
+        Comments count
+      </dt>
+      <dd>
+        <%= @the_photo.comments_count %>
+      </dd>
+
+      <dt>
+        Fans
+      </dt>
+      <dd>
+        Rosalia
+      </dd>
+
+      <dt>
+        Add a fan
+      </dt>
+      <dd>
+        <form>
+        <button>Like</button>
+        </form>
       </dd>
     </dl>
   </div>
@@ -128,4 +140,27 @@
   </div>
 </div>
 
-<hr>
+<h2>Comments</h2>
+<table>
+<tr>
+  <th>Cpmmenter</th>
+  <th>Comment</th>
+  <th>Poster</th>
+</tr>
+
+<% @list_of_all.each do |a_comment| %>
+<tr>
+  <td>a_comment.owner_id</td>
+  <td>a_comment.caption</td>
+  <td>a_comment.created_t</td>
+</tr>
+<% end %>
+</table>
+
+<h3>Add a new comment
+
+<form>
+  <label for="new_comment">Comment</label>
+  <input id="new_comment" name="new_comment" type="text" placeholder="enter a comment..."></input>
+  <button>Add comment</button>
+</form>
