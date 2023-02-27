@@ -24,11 +24,15 @@
         <li><a href="/user_sign_up">Sign up</a></li>
       
       <% else%>
-        <li><a href="/edit_user_profile">@current_user.username</a></li>
+        <li><a href="/edit_user_profile"> <%= @current_user.username%></a></li>
         <li><a href="/user_sign_out">Sign out</a></li>
       <% end %>
     </ul>
-    
-    <%= yield %>
+
+  <p style="color: green"><%= notice%></P>
+
+  <p style="color: red"><%= alert%></P>
+
+  <%= yield %>
   </body>
 </html>
