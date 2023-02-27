@@ -1,0 +1,24 @@
+<h1>List of users</h1>
+
+<table border=1>
+  <tr>
+    <th>Username</th>
+    <th>Private?</th>
+    <th></th>
+    <th></th>
+  </tr>
+   <% @list_of_users.each do |a_user| %>
+    <tr>
+      <td><%= a_user.username%></td>
+      <td>yes or no</td>
+      <td>
+        <form>
+          <label></label>
+          <input>
+          <button>"Follow"</button>
+        </form>
+      </td>
+      <td>show details</td>
+  </tr>
+  <% end %>
+</table>
