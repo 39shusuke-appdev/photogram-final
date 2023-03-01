@@ -7,8 +7,8 @@ class UsersController < ApplicationController
 
   def show
     the_user = params.fetch("user_name") 
-    @matching_user = User.where({ :username => the_user })
-    the_username = @matching_user.at(0)
+    matching_user = User.where({ :username => the_user })
+    @the_username = matching_user.at(0)
     render({ :template =>"users/show.html.erb"})
   end
 end

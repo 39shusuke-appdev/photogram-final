@@ -25,9 +25,9 @@ class User < ApplicationRecord
 
   has_many(:likes, {
     :class_name => "Like",
-    :foreign_key => "fan_id",
-    :dependent => :destroy
+    :foreign_key => "fan_id"
   })
   
+  has_many(:photos, :class_name =>"User")
 
 end

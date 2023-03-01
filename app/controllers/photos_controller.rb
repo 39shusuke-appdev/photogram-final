@@ -1,4 +1,25 @@
 class PhotosController < ApplicationController
+
+  def add_likes
+    l = Like.new
+    l.fan_id = session[:user_id]
+    l.photo_id = params.fetch("query_photo_id")
+    l.save
+    
+    redirect_to("/photos", { :notice => "Like created successfully"})
+  end
+
+  def delete_likes
+    the_id = params.fetch("path_id")
+    the_photo = Photo.where({ :id => the_id }).at(0)
+
+    the_photo.destroy
+
+    redirect_to("/photos", { :notice => "Photo deleted successfully."} )
+  end
+
+
+
   def index
     matching_photos = Photo.all
 

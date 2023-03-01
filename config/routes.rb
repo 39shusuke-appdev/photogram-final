@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+# Like action
+
+  post("/add_likes", { :controller => "photos", :action => "add_likes" })
+  
+# ------
+# User Index
+
   get("/users", {:controller => "users", :action => "index"})
 
   get("/users/:user_name", {:controller => "users", :action => "show"})

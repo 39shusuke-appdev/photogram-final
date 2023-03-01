@@ -18,14 +18,16 @@
         <% end %>
       </td>
       <td>
+      <% if session[:user_id] != nil %>
         <form action="/insert_follow_request" method="post">
-          <label></label>
-          <input>
+          <input type="hidden" name="query_recepient_id" value="<%= a_user.id%>">
           <button>Follow</button>
         </form>
+      <% else %>
+      <% end %>
       </td>
       <td>
-      <a href="/users/show">Show details</a></td>
+      <a href="/users/<%= a_user.username%>">Show details</a></td>
   </tr>
   <% end %>
 </table>

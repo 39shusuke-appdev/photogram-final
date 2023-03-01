@@ -9,4 +9,7 @@
 #  photo_id   :integer
 #
 class Like < ApplicationRecord
+  validates :fan_id, uniqueness: { scope: :photo_id}
+  belongs_to :user
+  belongs_to :photo
 end

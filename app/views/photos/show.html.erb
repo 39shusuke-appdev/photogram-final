@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Photo #<%= @the_photo.id %> details
+      Photo details
     </h1>
       
     <dl>
@@ -29,9 +29,19 @@
       <dt>Add a fan</dt>
       
       <dd>
-        <form>
-        <button>Like</button>
-        </form>
+
+        <% current_user_likes = Like.where({ :photo_id => @the_photo.id, :fan_id =>session[:user_id] })%>
+
+        <% the_like = current_user_likes.at(0) %>
+        
+        <% if the_like == nil%>
+          <form action = "/add_likes" method ="post">
+            <input type ="hidden" name = "query_photo_id" value="<%= @the_photo.id %>">
+            <button>Like</button>
+          </form>
+        <% else %>
+          <a href ="/delete_like/<%= @the_photo.id%>" >Unlike</a>
+        <% end %>
       </dd>
     </dl>
   </div>
