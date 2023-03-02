@@ -12,7 +12,7 @@
       <dd><%= @the_photo.caption %></dd>
 
       <dt>Owner</dt>
-      <dd><%= @the_photo.owner_id %></dd>
+      <dd><%= @the_photo.owner.username %></dd>
 
       <dt>Posted</dt>
       <dd><%= time_ago_in_words(@the_photo.created_at) %> ago</dd>
@@ -24,7 +24,10 @@
       <dd><%= @the_photo.comments_count %></dd>
 
       <dt>Fans</dt>
-      <dd>Rosalia</dd>
+      <dd>
+        <% like = Like.where(:photo_id => @the_photo.id).at(0) %>
+        <%= User.where(:id => like.fan_id).at(0).username%>    
+      </dd>
 
       <dt>Add a fan</dt>
       

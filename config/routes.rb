@@ -1,16 +1,5 @@
 Rails.application.routes.draw do
 
-
-
-
-
-
-
-
-
-
-
-
 # Like action
 
   post("/add_likes", { :controller => "photos", :action => "add_likes" })

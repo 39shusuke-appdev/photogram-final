@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     matching_user = User.where({ :username => the_user })
     @the_username = matching_user.at(0)
 
+    @the_request = FollowRequest.last
+
     if session[:user_id] == nil
       redirect_to("/user_sign_in", { :alert => "You have to sign in first."} )
     else 

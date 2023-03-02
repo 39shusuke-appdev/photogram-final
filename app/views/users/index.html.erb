@@ -18,11 +18,13 @@
         <% end %>
       </td>
 
-      <%# current_user_request = FollowRequest.where({ :reciepient_id => a_user.id, :sender_id =>session[:user_id] })%>
-      <%# the_request = current_user_request.at(0) %>
+      <%#= current_user_request = FollowRequest.where({ :recipient_id => a_user.id, :sender_id =>session[:user_id] })%>
+      <%#= the_request = current_user_request.at(0) %>
 
       <td>
         <% if session[:user_id] == nil %>
+
+        <%# elsif @the_request == "pending" %>
 
         <% else %>
           <form action="/add_follow_request" method="post">

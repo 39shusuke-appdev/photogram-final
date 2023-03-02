@@ -6,7 +6,7 @@ class PhotosController < ApplicationController
     l.photo_id = params.fetch("query_photo_id")
     l.save
     
-    redirect_to("/photos", { :notice => "Like created successfully"})
+    redirect_to("/photosra", { :notice => "Like created successfully"})
   end
 
   def delete_likes
