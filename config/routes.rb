@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
 
+
+
+
+
+
+
+
+
+
+
+
 # Like action
 
   post("/add_likes", { :controller => "photos", :action => "add_likes" })
@@ -11,6 +22,9 @@ Rails.application.routes.draw do
 
   get("/users/:user_name", {:controller => "users", :action => "show"})
 
+  get("/users/:user_name/liked_photos", {:controller => "users", :action => "index"})
+
+  get("/users/:user_name/discover", {:controller => "users", :action => "index"})
 
   get("/", {:controller => "users", :action => "index"})
 
@@ -37,7 +51,9 @@ Rails.application.routes.draw do
 
   # CREATE
   post("/insert_follow_request", { :controller => "follow_requests", :action => "create" })
-          
+  post("/add_follow_request", { :controller => "follow_requests", :action => "follow_request" })
+  
+  
   # READ
   get("/follow_requests", { :controller => "follow_requests", :action => "index" })
   

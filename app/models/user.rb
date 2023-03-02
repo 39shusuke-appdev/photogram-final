@@ -28,7 +28,7 @@ class User < ApplicationRecord
     :foreign_key => "fan_id"
   })
   
-  has_many(:photos, :class_name =>"User")
+  has_many(:photos, :class_name =>"Photo", :foreign_key => "owner_id")
 
 # フォローをした、されたの関係
   has_many :followrequests, class_name: "FollowRequest", foreign_key: "sender_id", dependent: :destroy
