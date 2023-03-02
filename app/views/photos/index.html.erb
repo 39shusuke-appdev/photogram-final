@@ -7,23 +7,22 @@
 </div>
 
 <div>
-  <div>
+  <% if session[:user_id] == nil %>
+ 
+  <% else %>
     <form action="/insert_photo" method="post">
+      <label for="image_box">Image</label>
+      <input type="file" id="image_box" name="query_image">
 
-        <label for="image_box">Image</label>
-        <input type="file" id="image_box" name="query_image">
-
-        <label for="caption_box">Caption</label>
-        <textarea id="caption_box" name="query_caption" rows="3"></textarea>
-      
+      <label for="caption_box">Caption</label>
+      <textarea id="caption_box" name="query_caption" rows="3"></textarea>
+  
       <button>Add photo</button>
     </form>
-  </div>
+  <% end %>
 </div>
 
-<hr>
 <div>
-  <div>
     <table border="1">
       <tr>
         <th>
@@ -80,7 +79,4 @@
       </tr>
       <% end %>
     </table>
-  </div>
 </div>
-
-<hr>

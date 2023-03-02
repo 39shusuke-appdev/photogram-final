@@ -17,17 +17,24 @@
         No
         <% end %>
       </td>
+
+      <%# current_user_request = FollowRequest.where({ :reciepient_id => a_user.id, :sender_id =>session[:user_id] })%>
+      <%# the_request = current_user_request.at(0) %>
+
       <td>
-      <% if session[:user_id] != nil %>
-        <form action="/insert_follow_request" method="post">
-          <input type="hidden" name="query_recepient_id" value="<%= a_user.id%>">
-          <button>Follow</button>
-        </form>
-      <% else %>
-      <% end %>
+        <% if session[:user_id] == nil %>
+
+        <% else %>
+          <form action="/insert_follow_request" method="post">
+            <input type="hidden" name="query_recipient_id" value="<%= a_user.id%>">
+            <button>Follow</button>
+        <% end %>
       </td>
       <td>
-      <a href="/users/<%= a_user.username%>">Show details</a></td>
-  </tr>
+          <a href="/users/<%= a_user.username%>">Show details</a>
+      </td>
+    </tr>
   <% end %>
 </table>
+
+      

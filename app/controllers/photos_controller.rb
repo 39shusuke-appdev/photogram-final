@@ -40,7 +40,11 @@ class PhotosController < ApplicationController
     matching_comments = Comment.all
     @list_of_comments = matching_comments.where({ :photo_id => the_id})
 
-    render({ :template => "photos/show.html.erb" })
+    if session[:user_id] == nil
+      redirect_to("/user_sign_in", { :alert => "You have to sign in first."} )
+    else
+       render({ :template => "photos/show.html.erb" })
+    end
   end
 
   def create

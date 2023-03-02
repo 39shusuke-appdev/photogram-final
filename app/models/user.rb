@@ -30,4 +30,12 @@ class User < ApplicationRecord
   
   has_many(:photos, :class_name =>"User")
 
+# フォローをした、されたの関係
+  has_many :followrequests, class_name: "FollowRequest", foreign_key: "sender_id", dependent: :destroy
+  has_many :reverse_of_followrequests, class_name: "FollowRequest", foreign_key: "recipient_id", dependent: :destroy
+
+# 一覧画面で使う
+has_many :followings, through: :followrequests, source: :recipient
+has_many :followers, through: :reverse_of_followrequests, source: :sender
+
 end

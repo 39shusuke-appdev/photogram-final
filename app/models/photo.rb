@@ -22,8 +22,6 @@ class Photo < ApplicationRecord
     :foreign_key => "photo_id"
    })
 
-  belongs_to(:owner, {
-    :class_name => "User"
-  })
+  belongs_to :owner, :class_name => "User"
 
 end

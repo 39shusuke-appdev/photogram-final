@@ -9,6 +9,12 @@ class UsersController < ApplicationController
     the_user = params.fetch("user_name") 
     matching_user = User.where({ :username => the_user })
     @the_username = matching_user.at(0)
-    render({ :template =>"users/show.html.erb"})
+
+    if session[:user_id] == nil
+      redirect_to("/user_sign_in", { :alert => "You have to sign in first."} )
+    else 
+      render({ :template =>"users/show.html.erb"})
+      # redirect_to("/users", { :alert => "You're not authorized for that."} )
+    end
   end
 end
